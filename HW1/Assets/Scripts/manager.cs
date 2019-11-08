@@ -7,6 +7,7 @@ public class manager : MonoBehaviour
     int Life = 3;
     public GameObject popcorn;
     float nextTime = 0;
+    public int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,19 @@ public class manager : MonoBehaviour
         Life--;
         if (Life <= 0)
         {
+            if (PlayerPrefs.HasKey("highscore"))
+            {
+                int highsc = PlayerPrefs.GetInt("highscore");
+                if(highsc < score)
+                {
+                    PlayerPrefs.SetInt("highscore", score);
+                }
+            }
+            else
+            {
+                PlayerPrefs.SetInt("highscore", score);
+            }
+            Debug.Log(score);
             Time.timeScale = 0f;
         }
     }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Popcorn : MonoBehaviour
 {
-
+    public GameObject Manager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class Popcorn : MonoBehaviour
     {
         Debug.Log("touch");
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-1f,1f),1,0) * 5f, ForceMode2D.Impulse);
+        Manager.GetComponent<manager>().score += 1;
     }
     
 }
