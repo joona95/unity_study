@@ -7,6 +7,10 @@ public class Witch : MonoBehaviour
     int HP = 100;
     public GameObject popcorn;
     int frame = 0;
+    private void Awake()
+    {
+        StartCoroutine("CreatePopcorn");
+    }
 
     private void Start()
     {
@@ -15,13 +19,15 @@ public class Witch : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        /*
         frame++;
         if (frame >= 30)
         {
             frame = frame - 30;
             Instantiate(popcorn, new Vector3(Random.Range(-2f, 2f), 10f, 0), popcorn.transform.rotation);
-        }
+        }*/
+
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -50,5 +56,15 @@ public class Witch : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1);
 
         Debug.Log("==");
+    }
+
+
+    IEnumerator CreatePopcorn()
+    {
+        while (true)
+        {
+            Instantiate(popcorn, new Vector3(Random.Range(-2f, 2f), 10f, 0), popcorn.transform.rotation);
+            yield return new WaitForSeconds(1f);
+        }
     }
 }
