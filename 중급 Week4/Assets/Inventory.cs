@@ -60,12 +60,18 @@ public class Inventory : MonoBehaviour, IPointerDownHandler
             {
                 case 0:
                     inventory[idx].GetComponent<Image>().color = new Color(0f, 0f, 0f);
+                    inventory[idx].GetComponent<Item>().level = item.level;
+                    inventory[idx].GetComponent<Item>().type = "무기";
                     break;
                 case 1:
                     inventory[idx].GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f);
+                    inventory[idx].GetComponent<Item>().level = item.level;
+                    inventory[idx].GetComponent<Item>().type = "한벌옷";
                     break;
                 case 2:
                     inventory[idx].GetComponent<Image>().color = new Color(1f, 1f, 1f);
+                    inventory[idx].GetComponent<Item>().level = item.level;
+                    inventory[idx].GetComponent<Item>().type = "신발";
                     break;
             }
             idx++;

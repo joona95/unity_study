@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PointerUp : MonoBehaviour, IPointerUpHandler
+public class Item : MonoBehaviour, IPointerDownHandler
 {
+    public string type;
+    public int level;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +20,9 @@ public class PointerUp : MonoBehaviour, IPointerUpHandler
         
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("up");
+
+        Debug.Log("등급"+level+type+"를(을) 클릭하셨습니다.");
     }
 }
